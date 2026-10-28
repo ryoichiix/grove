@@ -1,0 +1,7 @@
+{
+  "provider": "Gemini API",
+  "model": "gemma-4-26b-a4b-it",
+  "tag": "eval-raw:control_1",
+  "prompt": "You are a careful Python engineer.\n[TASK:control_1]\n\nTASK:\n`inputs['text']` is a block of free text. Return the number of words in it (an int).\n\nWrite Python (standard library only) that defines `solve(inputs)`. `inputs` is a dict as described above. Return the answer as plain JSON-compatible Python values. You cannot see the data in advance, so write robust code. Reply with exactly one ```python code block and nothing else.",
+  "text": "```python\ndef solve(inputs):\n    \"\"\"\n    Counts the number of words in the 'text' field of the inputs dictionary.\n    A word is defined as a sequence of characters separated by whitespace.\n    \"\"\"\n    # Safely retrieve the 'text' value from the dictionary\n    text = inputs.get('text')\n    \n    # Check if the retrieved value is a string\n    if isinstance(text, str):\n        # split() without arguments splits by any whitespace and removes empty strings\n        return len(text.split())\n    \n    # If text is not a string or is missing, return 0\n    return 0\n```"
+}

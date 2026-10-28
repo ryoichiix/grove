@@ -1,0 +1,7 @@
+{
+  "provider": "Gemini API",
+  "model": "gemma-4-26b-a4b-it",
+  "tag": "select:localized_dates_1",
+  "prompt": "[TASK:localized_dates_1]\nYou are an agent deciding which saved skills to load before starting a task. Skills are listed as name: description.\n\n- parse-european-format-csv: Use when parsing CSV data that uses semicolons as delimiters and European-style numeric formatting (dots for thousands and commas for decimals).\n\nTASK:\nYou are given `inputs['log_text']`, a plain-text operations log with one event per line. Each line starts with the date of the event, followed by ' - ' and a description. Return how many events happened in March 2025 (an int).\n\nWhich skills clearly apply to this task? Reply with a comma-separated list of exact skill names, or the single word NONE if none apply.",
+  "text": "NONE"
+}

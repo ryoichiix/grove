@@ -1,0 +1,7 @@
+{
+  "provider": "Gemini API",
+  "model": "gemma-4-26b-a4b-it",
+  "tag": "eval-raw:control_2",
+  "prompt": "You are a careful Python engineer.\n[TASK:control_2]\n\nTASK:\n`inputs['text']` is a block of free text. Return the list of its words in reverse order.\n\nWrite Python (standard library only) that defines `solve(inputs)`. `inputs` is a dict as described above. Return the answer as plain JSON-compatible Python values. You cannot see the data in advance, so write robust code. Reply with exactly one ```python code block and nothing else.",
+  "text": "```python\ndef solve(inputs):\n    \"\"\"\n    Takes a dictionary containing a 'text' key with a block of free text,\n    and returns a list of its words in reverse order.\n    \"\"\"\n    # Retrieve the text from the inputs dictionary\n    text = inputs.get('text', '')\n    \n    # Ensure the text is a string to handle potential unexpected input types\n    if not isinstance(text, str):\n        return []\n    \n    # split() without arguments splits the string by any whitespace \n    # (spaces, tabs, newlines, etc.) and discards empty strings.\n    words = text.split()\n    \n    # Return the list of words in reverse order\n    return words[::-1]\n```"
+}

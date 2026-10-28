@@ -1,0 +1,7 @@
+{
+  "provider": "Gemini API",
+  "model": "gemma-4-26b-a4b-it",
+  "tag": "eval-raw:paged_api_2",
+  "prompt": "You are a careful Python engineer.\n[TASK:paged_api_2]\n\nTASK:\n`inputs['fetch_page']` is a function `fetch_page(token=None)` that returns one page of a paginated records API as a dict with keys `items` (list of records, each a dict with integer `id` and integer `value`) and `next` (token for the following page). Call it with no token to get the first page. Fetch every page and return the sum of `value` over all records (an int).\n\nWrite Python (standard library only) that defines `solve(inputs)`. `inputs` is a dict as described above. Return the answer as plain JSON-compatible Python values. You cannot see the data in advance, so write robust code. Reply with exactly one ```python code block and nothing else.",
+  "text": "```python\ndef solve(inputs):\n    fetch_page = inputs['fetch_page']\n    total_sum = 0\n    current_token = None\n    \n    while True:\n        # Fetch the current page using the token\n        page = fetch_page(current_token)\n        \n        # Add the values of all items in the current page to the total sum\n        items = page.get('items', [])\n        for item in items:\n            total_sum += item.get('value', 0)\n            \n        # Update the token for the next page\n        current_token = page.get('next')\n        \n        # If there is no next token, we have reached the end of the pagination\n        if current_token is None:\n            break\n            \n    return total_sum\n```"
+}

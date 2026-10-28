@@ -1,0 +1,7 @@
+{
+  "provider": "Gemini API",
+  "model": "gemma-4-26b-a4b-it",
+  "tag": "smoke",
+  "prompt": "Reply with exactly the single word: OK",
+  "text": "OK"
+}

@@ -1,0 +1,7 @@
+{
+  "provider": "Gemini API",
+  "model": "gemma-4-26b-a4b-it",
+  "tag": "solve:paged_api_1:r1",
+  "prompt": "You are a careful Python engineer.\n[TASK:paged_api_1]\n\nTASK:\n`inputs['fetch_page']` is a function `fetch_page(token=None)` that returns one page of a paginated records API as a dict with keys `items` (list of records, each a dict with integer `id` and integer `value`) and `next` (token for the following page). Call it with no token to get the first page. Fetch every page and return the total number of records (an int).\n\nWrite Python (standard library only) that defines `solve(inputs)`. `inputs` is a dict as described above. Return the answer as plain JSON-compatible Python values. You cannot see the data in advance, so write robust code. Reply with exactly one ```python code block and nothing else.",
+  "text": "```python\ndef solve(inputs):\n    fetch_page = inputs['fetch_page']\n    total_count = 0\n    current_token = None\n    \n    while True:\n        # Fetch the current page using the current token\n        page = fetch_page(token=current_token)\n        \n        # Add the number of items in the current page to the total count\n        items = page.get('items', [])\n        total_count += len(items)\n        \n        # Update the token for the next page\n        current_token = page.get('next')\n        \n        # If there is no next token, we have reached the end of the pagination\n        if current_token is None:\n            break\n            \n    return total_count\n```"
+}

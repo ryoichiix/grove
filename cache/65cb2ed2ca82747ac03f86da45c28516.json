@@ -1,0 +1,7 @@
+{
+  "provider": "Gemini API",
+  "model": "gemma-4-26b-a4b-it",
+  "tag": "select:human_units_1",
+  "prompt": "[TASK:human_units_1]\nYou are an agent deciding which saved skills to load before starting a task. Skills are listed as name: description.\n\n- parse-european-format-csv: Use when parsing CSV data that uses semicolons as delimiters and European-style numeric formatting (dots for thousands and commas for decimals).\n\nTASK:\nYou are given `inputs['metrics_text']`, a plain-text metrics export with one service per line in the form `service-name: value`. Return the sum of all service values as a float rounded to 2 decimals. Services without a reading are ignored.\n\nWhich skills clearly apply to this task? Reply with a comma-separated list of exact skill names, or the single word NONE if none apply.",
+  "text": "NONE"
+}
